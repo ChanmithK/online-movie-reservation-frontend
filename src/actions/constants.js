@@ -28,12 +28,17 @@ export const userConstants = {
 //     DELETE_CATEGORY_FAILURE:'DELETE_CATEGORY_FAILURE'
 // }
 
-export const movieConstants = {
+export const moviesConstants = {
   GET_ALL_MOVIE_REQUEST: "GET_ALL_MOVIE_REQUEST",
   GET_ALL_MOVIE_SUCCESS: "GET_ALL_MOVIE_SUCCESS",
   GET_ALL_MOVIE_FAILURE: "GET_ALL_MOVIE_FAILURE",
 };
 
+export const movieConstants = {
+  GET_MOVIE_REQUEST: "GET_MOVIE_REQUEST",
+  GET_MOVIE_SUCCESS: "GET_MOVIE_SUCCESS",
+  GET_MOVIE_FAILURE: "GET_MOVIE_FAILURE",
+};
 // export const initialDataConstants = {
 //     GET_ALL_initialData_REQUEST:'GET_ALL_initialData_REQUEST',
 //     GET_ALL_initialData_SUCCESS:'GET_ALL_initialData_SUCCESS',

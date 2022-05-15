@@ -1,11 +1,7 @@
-import { moviesConstants } from "../actions/constants";
+import { movieConstants } from "../actions/constants";
 
 const initState = {
-  movies: [],
-  moviesByShowing: {
-    nowShowing: [],
-    commingSoonShowing: [],
-  },
+  movie: {},
   pageRequest: false,
   error: null,
   loading: false,
@@ -13,23 +9,20 @@ const initState = {
 
 export default (state = initState, action) => {
   switch (action.type) {
-    case moviesConstants.GET_ALL_MOVIE_REQUEST:
+    case movieConstants.GET_MOVIE_REQUEST:
       state = {
         ...state,
         pageRequest: true,
       };
       break;
-    case moviesConstants.GET_ALL_MOVIE_SUCCESS:
+    case movieConstants.GET_MOVIE_SUCCESS:
       state = {
         ...state,
-        movies: action.payload.movies,
-        moviesByShowing: {
-          ...action.payload.moviesByShowing,
-        },
+        movie: action.payload.movie,
         pageRequest: false,
       };
       break;
-    case moviesConstants.GET_ALL_MOVIE_FAILURE:
+    case movieConstants.GET_MOVIE_FAILURE:
       state = {
         ...state,
         error: action.payload.error,

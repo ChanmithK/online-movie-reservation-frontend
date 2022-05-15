@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./containers/Login";
 import MainLandingPage from "./containers/MainLandingPage";
 import HomePage from "./containers/HomePage";
+import Movie from "./containers/Movie/Index";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/header" element={<Header />} />
         <Route path="/home-page" element={<HomePage />} />
+        <Route path="admin/movies/:id" element={<Movie />} />
       </Routes>
     </div>
   );
