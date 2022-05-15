@@ -1,11 +1,11 @@
 import { userConstants } from "./constants";
 import axios from "../helpers/axios";
 
-export const signup = (user) => {
+export const register = (user) => {
   console.log(user);
   return async (dispatch) => {
     dispatch({ type: userConstants.USER_REGISTER_REQUEST });
-    const res = await axios.post("/student/signup", {
+    const res = await axios.post("/user/register", {
       ...user,
     });
 

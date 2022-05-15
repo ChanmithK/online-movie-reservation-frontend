@@ -1,11 +1,12 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import Register from "./containers/Register";
+// import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Routes></Routes>
+      <Register />
     </div>
   );
 }
