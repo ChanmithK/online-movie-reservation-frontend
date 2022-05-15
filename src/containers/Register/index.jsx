@@ -45,7 +45,7 @@ const Register = () => {
         <br />
         <label for="fname">Email:</label>
         <input
-          type="text"
+          type="email"
           placeholder="Enter Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -61,7 +61,7 @@ const Register = () => {
         <br />
         <label for="fname">Password:</label>
         <input
-          type="text"
+          type="password"
           placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -69,7 +69,7 @@ const Register = () => {
         <br />
         <label for="lname">Re-Enter Password:</label>
         <input
-          type="text"
+          type="password"
           placeholder="Enter Re-Password"
           value={re_hash_password}
           onChange={(e) => setRePassword(e.target.value)}
