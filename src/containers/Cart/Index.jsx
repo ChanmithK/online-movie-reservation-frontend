@@ -9,7 +9,7 @@ function Cart() {
   useEffect(() => {
     dispatch(getCart());
   }, []);
-  console.log(cart.cartItems);
+
   return (
     <table responsive="sm">
       <thead>
@@ -21,19 +21,18 @@ function Cart() {
       </thead>
       <tbody>
         {cart.cartItems.length > 0
-          ? cart.cartItems.Item.map((cart) => (
-              <tr
-                //   onClick={() => showProductDetailsModal(product)}
-                // key={cart._id}
-                style={{ cursor: "Pointer" }}
-              >
-                <td>2</td>
-                <td>{cart.name}</td>
-                {/* <td>{cart.price}</td> */}
-                {/* <td>{product.quantity}</td>
-                <td>{product.category.name}</td> */}
-              </tr>
-            ))
+          ? cart.cartItems.map((cart) =>
+              cart.cartItems.map((test) => (
+                <tr
+                  //   onClick={() => showProductDetailsModal(product)}
+                  key={test._id}
+                  style={{ cursor: "Pointer" }}
+                >
+                  <td>{test.movie.movieName}</td>
+                  <td>{test.movie.price}</td>
+                </tr>
+              ))
+            )
           : null}
       </tbody>
     </table>
