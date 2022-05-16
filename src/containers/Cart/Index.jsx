@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCart } from "../../actions/movies.action";
+import { Navigate } from "react-router-dom";
+import { getCart, RemoveFromCart } from "../../actions/movies.action";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
@@ -8,6 +9,16 @@ function Cart() {
   useEffect(() => {
     dispatch(getCart());
   }, []);
+
+  const RemoveCartItem = (id) => {
+    // e.preventDefault();
+    const data = {
+      id: id,
+    };
+    console.log(data);
+    dispatch(RemoveFromCart(data));
+    window.location.reload(false);
+  };
 
   return (
     <table responsive="sm">
@@ -30,7 +41,14 @@ function Cart() {
                   <td>{test.movie.movieName}</td>
                   <td>{test.movie.price}</td>
                   <td>
-                    <button style={{ background: "red" }}>Remove</button>
+                    <button
+                      style={{ background: "red" }}
+                      onClick={() => {
+                        RemoveCartItem(test._id);
+                      }}
+                    >
+                      Remove
+                    </button>
                     <button style={{ background: "green" }}>Continue</button>
                   </td>
                 </tr>

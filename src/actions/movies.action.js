@@ -82,3 +82,29 @@ export const getCart = () => {
     }
   };
 };
+
+export const RemoveFromCart = (item) => {
+  return async (dispatch) => {
+    dispatch({ type: cartConstants.REMOVE_FROM_CART_REQUEST });
+    const res = await axios.post("/user/cart/removeCartItems", {
+      ...item,
+    });
+
+    if (res.status === 202) {
+      const { message } = res.data;
+      dispatch({
+        type: cartConstants.ADD_TO_CART_SUCCESS,
+        payload: {
+          message,
+        },
+      });
+    } else {
+      if (res.status === 400) {
+        dispatch({
+          type: cartConstants.REMOVE_FROM_CART_FAILURE,
+          payload: { error: res.data.error },
+        });
+      }
+    }
+  };
+};
