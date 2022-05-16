@@ -4,7 +4,6 @@ import { getCart } from "../../actions/movies.action";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
-  console.log("I am Cart", cart.cartItems);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCart());
@@ -30,6 +29,10 @@ function Cart() {
                 >
                   <td>{test.movie.movieName}</td>
                   <td>{test.movie.price}</td>
+                  <td>
+                    <button style={{ background: "red" }}>Remove</button>
+                    <button style={{ background: "green" }}>Continue</button>
+                  </td>
                 </tr>
               ))
             )
