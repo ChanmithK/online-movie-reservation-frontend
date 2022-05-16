@@ -1,5 +1,5 @@
 import axios from "../helpers/axios";
-import { movieConstants, moviesConstants } from "./constants";
+import { cartConstants, movieConstants, moviesConstants } from "./constants";
 
 export const getAllMovies = () => {
   return async (dispatch) => {
@@ -32,6 +32,51 @@ export const getMovie = (id) => {
     } else {
       dispatch({
         type: movieConstants.GET_MOVIE_FAILURE,
+        payload: { error: res.data.error },
+      });
+    }
+  };
+};
+
+export const AddtoCart = (item) => {
+  return async (dispatch) => {
+    dispatch({ type: cartConstants.ADD_TO_CART_REQUEST });
+    const res = await axios.post("/user/cart/addtocard", {
+      ...item,
+    });
+
+    if (res.status === 201) {
+      const { message } = res.data;
+      dispatch({
+        type: cartConstants.ADD_TO_CART_SUCCESS,
+        payload: {
+          message,
+        },
+      });
+    } else {
+      if (res.status === 400) {
+        dispatch({
+          type: cartConstants.ADD_TO_CART_FAILURE,
+          payload: { error: res.data.error },
+        });
+      }
+    }
+  };
+};
+
+export const getCart = () => {
+  return async (dispatch) => {
+    dispatch({ type: cartConstants.GET_TO_CART_REQUEST });
+    const res = await axios.get("/user/cart/getCartItems");
+    console.log(res);
+    if (res.status === 200) {
+      dispatch({
+        type: cartConstants.GET_TO_CART_SUCCESS,
+        payload: { cartItemList: res.data.cartItems },
+      });
+    } else {
+      dispatch({
+        type: cartConstants.GET_TO_CART_FAILURE,
         payload: { error: res.data.error },
       });
     }

@@ -10,6 +10,7 @@ import Movie from "./containers/Movie/Index";
 import { useDispatch, useSelector } from "react-redux";
 import { isUserLoggedIn } from "./actions/auth.actions";
 import PrivateWrapper from "./components/HOC/PrivateRoute";
+import Cart from "./containers/Cart/Index";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,6 +34,13 @@ function App() {
         </Route>
         <Route path="/admin/movies/:id" exact element={<PrivateWrapper />}>
           <Route path="/admin/movies/:id" element={<Movie />} />
+        </Route>
+        <Route
+          path="/user/cart/getCartItems"
+          exact
+          element={<PrivateWrapper />}
+        >
+          <Route path="/user/cart/getCartItems" element={<Cart />} />
         </Route>
       </Routes>
     </div>
