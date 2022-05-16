@@ -32,7 +32,7 @@ function App() {
           <Route path="/home-page" element={<HomePage />} />
         </Route>
         <Route path="/admin/movies/:id" exact element={<PrivateWrapper />}>
-          <Route path="/admin/movies/:id" element={<HomePage />} />
+          <Route path="/admin/movies/:id" element={<Movie />} />
         </Route>
       </Routes>
     </div>
