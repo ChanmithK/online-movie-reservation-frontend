@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Register from "./containers/Register/Register";
 import Header from "./components/Layouts/Header";
@@ -7,8 +7,20 @@ import Login from "./containers/Login";
 import MainLandingPage from "./containers/MainLandingPage";
 import HomePage from "./containers/HomePage";
 import Movie from "./containers/Movie/Index";
+import { useDispatch, useSelector } from "react-redux";
+import { isUserLoggedIn } from "./actions/auth.actions";
+import PrivateWrapper from "./components/HOC/PrivateRoute";
 
 function App() {
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (!auth.authenticate) {
+      dispatch(isUserLoggedIn());
+    }
+  }, [auth.authenticate]);
+
   return (
     <div className="App">
       <Routes>
@@ -16,8 +28,12 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/header" element={<Header />} />
-        <Route path="/home-page" element={<HomePage />} />
-        <Route path="admin/movies/:id" element={<Movie />} />
+        <Route path="/home-page" exact element={<PrivateWrapper />}>
+          <Route path="/home-page" element={<HomePage />} />
+        </Route>
+        <Route path="/admin/movies/:id" exact element={<PrivateWrapper />}>
+          <Route path="/admin/movies/:id" element={<HomePage />} />
+        </Route>
       </Routes>
     </div>
   );

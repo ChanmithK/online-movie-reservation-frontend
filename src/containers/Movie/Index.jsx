@@ -17,9 +17,9 @@ function Movie(props) {
 
   return (
     <div>
-      <div>
+      {/* <div>
         <img src={imgURL(movie.movie.moviePictures[0].img)} alt="" />
-      </div>
+      </div> */}
       <div>{movie.movie.movieName}</div>
       <div>{movie.movie.description}</div>
       <div>Rs.{movie.movie.price}</div>

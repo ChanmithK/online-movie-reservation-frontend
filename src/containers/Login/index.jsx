@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/auth.actions";
+import { Navigate } from "react-router";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const userLogin = (e) => {
@@ -16,6 +17,10 @@ const Login = () => {
     };
     dispatch(login(user));
   };
+
+  if (auth.authenticate) {
+    return <Navigate to={"/home-page"} />;
+  }
 
   return (
     <div>
