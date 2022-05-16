@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { getCart, RemoveFromCart } from "../../actions/movies.action";
 
 function Cart() {
@@ -49,7 +49,11 @@ function Cart() {
                     >
                       Remove
                     </button>
-                    <button style={{ background: "green" }}>Continue</button>
+                    <button style={{ background: "green" }}>
+                      <Link to={"/user/booking/" + test.movie._id}>
+                        Continue
+                      </Link>
+                    </button>
                   </td>
                 </tr>
               ))
