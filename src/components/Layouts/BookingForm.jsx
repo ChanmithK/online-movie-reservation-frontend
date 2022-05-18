@@ -40,7 +40,7 @@ function BookingForm({
 	const movie = useSelector(state => state.movie);
 	const theaterStore = useSelector(state => state.theaters);
 
-	console.log("puk", movie);
+	// console.log("puk", movie);
 
 	const dispatch = useDispatch();
 	const { id } = useParams();

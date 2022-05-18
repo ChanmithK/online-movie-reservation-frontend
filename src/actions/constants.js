@@ -60,6 +60,12 @@ export const theaterConstants = {
   ADD_THEATER_FAILURE: "ADD_THEATER_FAILURE",
 };
 
+export const bookingConstants = {
+  ADD_BOOKING_REQUEST: "ADD_BOOKING_REQUEST",
+  ADD_BOOKING_SUCCESS: "ADD_BOOKING_SUCCESS",
+  ADD_BOOKING_FAILURE: "ADD_BOOKING_FAILURE",
+};
+
 // export const initialDataConstants = {
 //     GET_ALL_initialData_REQUEST:'GET_ALL_initialData_REQUEST',
 //     GET_ALL_initialData_SUCCESS:'GET_ALL_initialData_SUCCESS',
