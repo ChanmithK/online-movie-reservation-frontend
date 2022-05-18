@@ -84,6 +84,8 @@ function BookingForm({
 			<input
 				type='number'
 				name='number'
+				min='0'
+				max='10'
 				value={noOfSeats}
 				onChange={e => setnoOfSeats(e.target.value)}
 				className='font-medium text-md mt-1 px-3 py-1 bg-white border border-slate-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block lg:w-[28rem] sm:w-144 rounded-md focus:ring-1'
