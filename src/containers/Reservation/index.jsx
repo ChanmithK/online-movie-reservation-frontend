@@ -6,6 +6,8 @@ import {
 	RemoveBookingDetails,
 } from "../../actions/booking.actions";
 import Header from "../../components/Layouts/HeaderTwo";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function Cart() {
 	const bookings = useSelector(state => state.bookings);
@@ -52,13 +54,28 @@ function Cart() {
 											<button
 												className='hover:bg-main-purpledrk bg-main-purple  px-3 rounded-xl text-white font-medium text-left'
 												onClick={() => {
-													RemoveBooking(booking._id);
+													confirmAlert({
+														title: "Yes to Cancel",
+														message:
+															"Are you sure to cancel this reservaton ?.",
+														buttons: [
+															{
+																label: "Yes",
+																onClick: () => {
+																	RemoveBooking(booking._id);
+																},
+															},
+															{
+																label: "No",
+															},
+														],
+													});
 												}}>
-												Remove
+												Cancel
 											</button>
 											<button className='hover:bg-main-orangedrk bg-main-orange  px-3 rounded-xl text-white font-medium text-left'>
 												<Link to={"/user/booking/pdf/" + booking._id}>
-													Continue
+													Ticket
 												</Link>
 											</button>
 										</td>
