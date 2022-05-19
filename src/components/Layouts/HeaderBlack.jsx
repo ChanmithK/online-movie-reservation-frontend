@@ -8,7 +8,9 @@ function HeaderBlack() {
 		<div className=''>
 			<div className='grid grid-cols-2 gap-[48rem] mx-40 py-4'>
 				<div className=''>
-					<p className='font-regular text-xl text-black py-1'>VOX CINEMAZ</p>
+					<Link to='/home-page'>
+						<p className='font-regular text-xl text-black py-1'>VOX CINEMAZ</p>
+					</Link>
 				</div>
 				<div className='grid grid-cols-1'>
 					<Link to='#'>
