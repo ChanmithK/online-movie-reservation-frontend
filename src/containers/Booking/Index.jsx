@@ -159,39 +159,39 @@ function Booking() {
     dispatch(AddBooking(reservation));
   };
 
-  if (movie.movie.moviePictures) {
-    return (
-      <div className="bg-[#4A47A3]/5 h-screen w-screen">
-        <Header />
-        <div className="grid grid-cols-2 mx-[10rem]">
-          <div className="text-black">
-            <h3 className="font-medium text-lg text-left mt-8 uppercase">
-              {movie.movie.movieName}
-            </h3>
-            <ToastContainer
-              position="top-right"
-              autoClose={5000}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-            />
-            <ToastContainer />
-            {pageDisplay()}
-          </div>
-          <div className="">
-            <img
-              src={imgURL(movie.movie.moviePictures[0].img)}
-              className="w-[19rem] mt-8 ml-[11rem] drop-shadow-2xl"
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
+	if (movie.movie.moviePictures) {
+		return (
+			<div className='bg-[#4A47A3]/5 h-screen w-screen'>
+				<Header />
+				<div className='grid grid-cols-2 mx-[10rem]'>
+					<div className='text-black'>
+						<h3 className='font-medium text-lg text-left mt-8 uppercase'>
+							{movie.movie.movieName}
+						</h3>
+						<ToastContainer
+							position='top-right'
+							autoClose={5000}
+							hideProgressBar={false}
+							newestOnTop={false}
+							closeOnClick
+							rtl={false}
+							pauseOnFocusLoss
+							draggable
+							pauseOnHover
+						/>
+
+						{pageDisplay()}
+					</div>
+					<div className=''>
+						<img
+							src={imgURL(movie.movie.moviePictures[0].img)}
+							className='w-[19rem] mt-8 ml-[11rem] drop-shadow-2xl'
+						/>
+					</div>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default Booking;
