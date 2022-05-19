@@ -30,9 +30,7 @@ function UpComing() {
 							<p className='font-semibold text-2xl pt-2 pl-1'>
 								{movie.movieName}
 							</p>
-							<p className='font-regular text-sm pb-8 pl-1'>
-								IN CINEMAS 8TH OCTOMBER
-							</p>
+							<p className='font-regular text-sm pb-8 pl-1'>SOON ON CINEMAS</p>
 						</div>
 					))}
 				</div>
