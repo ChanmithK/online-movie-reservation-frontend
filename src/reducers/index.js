@@ -5,6 +5,8 @@ import moviesReducer from "./movies.reducer";
 import movieReducer from "./movie.reducer";
 import cartReducer from "./cart.reducer";
 import theaterReducer from "./theater.reducers";
+import bookingsReducer from "./bookings.reducers";
+import bookingReducer from "./booking.reducers";
 
 const rootReducer = combineReducers({
   user: userReducer,
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   movie: movieReducer,
   cart: cartReducer,
   theaters: theaterReducer,
+  bookings: bookingsReducer,
+  booking: bookingReducer,
 });
 
 export default rootReducer;
