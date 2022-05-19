@@ -172,7 +172,7 @@ function Booking() {
 							draggable
 							pauseOnHover
 						/>
-						<ToastContainer />
+
 						{pageDisplay()}
 					</div>
 					<div className=''>
