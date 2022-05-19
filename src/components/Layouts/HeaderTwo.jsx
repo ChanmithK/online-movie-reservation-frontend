@@ -27,7 +27,14 @@ function HeaderTwo() {
 						<li className=' mt-16'>
 							<Link to='/res'>Reservations</Link>
 						</li>
-						<li className='mt-[15rem]'>Logout</li>
+						<button
+							onClick={() => {
+								window.localStorage.clear();
+
+								window.location.reload(false);
+							}}>
+							<li className='mt-[15rem]'>Logout</li>
+						</button>
 					</ul>
 				</div>
 			);

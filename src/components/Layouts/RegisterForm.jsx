@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { register } from "../../actions/user.actions";
+import { Link, Navigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function RegisterForm() {
 	const [fullName, setFullName] = useState("");
@@ -8,6 +11,8 @@ function RegisterForm() {
 	const [phone, setPhone] = useState("");
 	const [password, setPassword] = useState("");
 	const [re_hash_password, setRePassword] = useState("");
+
+	const user = useSelector(state => state.user);
 
 	const dispatch = useDispatch();
 
@@ -23,6 +28,11 @@ function RegisterForm() {
 		console.log(user);
 		dispatch(register(user));
 	};
+
+	if (user.authenticate) {
+		return <Navigate to={"/login"} />;
+	}
+
 	return (
 		<div>
 			<h1 className='font-bold text-xl  font-bold text-4xl text-black mt-14 mb-4 text-left'>
@@ -106,7 +116,27 @@ function RegisterForm() {
 			<button
 				className='mt-5 font-normal text-lg mt-1 px-3 py-1 bg-main-orange text-white border border-slate-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block lg:w-96 sm:w-144 rounded-md hover:bg-main-orangedrk-active'
 				onClick={() => {
-					userRegister();
+					if (password !== re_hash_password) {
+						confirmAlert({
+							message: "Password Mismatched!",
+							buttons: [
+								{
+									label: "Try again",
+								},
+							],
+						});
+					} else if (password.length < 6) {
+						confirmAlert({
+							message: "Password Should be minimum of six digits",
+							buttons: [
+								{
+									label: "Try again",
+								},
+							],
+						});
+					} else {
+						userRegister();
+					}
 				}}>
 				Register
 			</button>
