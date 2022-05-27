@@ -37,6 +37,7 @@ function Booking() {
 	const dispatch = useDispatch();
 	const { id } = useParams();
 
+	// get all theaters from the store
 	useEffect(() => {
 		dispatch(getMovie("/admin/movies/" + id));
 		dispatch(getAllTheaters());

@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../components/Layouts/Header";
-//import Header from "../components/Layouts/HeaderTwo";
 import StrangeCover from "../images/StrangeCover.png";
 import About from "../components/Layouts/MovieAbout";
 function MainLandingPage() {

@@ -16,43 +16,46 @@ import PDF from "./components/Layouts/PDF";
 import Reservations from "./containers/Reservation/index";
 
 function App() {
-  const dispatch = useDispatch();
-  const auth = useSelector((state) => state.auth);
+	const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (!auth.authenticate) {
-      dispatch(isUserLoggedIn());
-    }
-  }, [auth.authenticate]);
+	// retriving authentication details from the store
+	const auth = useSelector(state => state.auth);
 
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<MainLandingPage />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/res" element={<Reservations />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/user/booking/pdf/:id" element={<PDF />} />
-        <Route path="/header" element={<Header />} />
-        <Route path="/home-page" exact element={<PrivateWrapper />}>
-          <Route path="/home-page" element={<HomePage />} />
-        </Route>
-        <Route path="/admin/movies/:id" exact element={<PrivateWrapper />}>
-          <Route path="/admin/movies/:id" element={<Movie />} />
-        </Route>
-        <Route path="/user/booking/:id" exact element={<PrivateWrapper />}>
-          <Route path="/user/booking/:id" element={<Booking />} />
-        </Route>
-        <Route
-          path="/user/cart/getCartItems"
-          exact
-          element={<PrivateWrapper />}
-        >
-          <Route path="/user/cart/getCartItems" element={<Cart />} />
-        </Route>
-      </Routes>
-    </div>
-  );
+	// user must be logged-in to get the priviledges to access the paths
+	useEffect(() => {
+		if (!auth.authenticate) {
+			dispatch(isUserLoggedIn());
+		}
+	}, [auth.authenticate]);
+
+	return (
+		// Defining paths using routes where user can access
+		<div className='App'>
+			<Routes>
+				<Route path='/' element={<MainLandingPage />} />
+				<Route path='/register' element={<Register />} />
+				<Route path='/res' element={<Reservations />} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/user/booking/pdf/:id' element={<PDF />} />
+				<Route path='/header' element={<Header />} />
+				<Route path='/home-page' exact element={<PrivateWrapper />}>
+					<Route path='/home-page' element={<HomePage />} />
+				</Route>
+				<Route path='/admin/movies/:id' exact element={<PrivateWrapper />}>
+					<Route path='/admin/movies/:id' element={<Movie />} />
+				</Route>
+				<Route path='/user/booking/:id' exact element={<PrivateWrapper />}>
+					<Route path='/user/booking/:id' element={<Booking />} />
+				</Route>
+				<Route
+					path='/user/cart/getCartItems'
+					exact
+					element={<PrivateWrapper />}>
+					<Route path='/user/cart/getCartItems' element={<Cart />} />
+				</Route>
+			</Routes>
+		</div>
+	);
 }
 
 export default App;

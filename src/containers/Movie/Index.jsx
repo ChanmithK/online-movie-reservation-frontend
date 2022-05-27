@@ -11,19 +11,18 @@ function Movie(props) {
 	const location = useLocation();
 	const movie = useSelector(state => state.movie);
 
+	// get relevant movie by movie-id
 	useEffect(() => {
 		dispatch(getMovie(location.pathname));
 	}, []);
 
-	console.log(movie);
+	// adding a movie to the cart
 	const AddCart = id => {
-		// e.preventDefault();
 		const data = {
 			cartItems: {
 				movie: id,
 			},
 		};
-		console.log(data);
 		dispatch(AddtoCart(data));
 	};
 
@@ -56,8 +55,6 @@ function Movie(props) {
 					<div className='flex mt-8 mx-[5rem] gap-4'>
 						<p>Ticket Price</p>
 						<p className='font-semibold'>Rs.{movie.movie.price}</p>
-						{/* <p className='font-semibold'>ADVENTURE</p>
-						<p className='font-semibold'>FANTACY</p> */}
 					</div>
 					<div className='grid grid-cols-1 w-[8rem] mx-[5rem] mt-8 mb-8'>
 						<button
