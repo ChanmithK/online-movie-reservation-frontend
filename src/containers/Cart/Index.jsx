@@ -8,12 +8,13 @@ import "./style.css";
 function Cart() {
 	const cart = useSelector(state => state.cart);
 	const dispatch = useDispatch();
+
+	// retrieve all the cart items relevent to a user
 	useEffect(() => {
 		dispatch(getCart());
 	}, []);
 
 	const RemoveCartItem = id => {
-		// e.preventDefault();
 		const data = {
 			id: id,
 		};

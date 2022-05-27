@@ -24,6 +24,7 @@ const Login = () => {
 		});
 	};
 
+	// send user loging details to auth.action file to authenticate
 	const userLogin = e => {
 		const user = {
 			email,
@@ -32,6 +33,7 @@ const Login = () => {
 		dispatch(login(user));
 	};
 
+	// if user is authenticated, user will navigate to home page
 	if (auth.authenticate) {
 		return <Navigate to={"/home-page"} />;
 	}
@@ -40,7 +42,7 @@ const Login = () => {
 		<div className='grid grid-cols-2 h-screen lg:grid-cols-2 sm:grid-cols-1'>
 			<div className='h-full'>
 				<div className='ml-32 mr-8'>
-					<h1 className='font-bold text-xl  font-bold text-4xl text-black mt-14 mb-4 text-left'>
+					<h1 className='text-xl  font-bold text-4xl text-black mt-14 mb-4 text-left'>
 						Login
 					</h1>
 					<div>
