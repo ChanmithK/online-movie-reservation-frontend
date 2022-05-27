@@ -84,7 +84,11 @@ function BookingForm({
 				className='font-medium text-md mt-1 px-3 py-1 bg-white border border-slate-300 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block lg:w-[28rem] sm:w-144 rounded-md focus:ring-1'
 				selected={startDate}
 				onChange={date => setStartDate(date)}
-				includeDates={[new Date("2022-05-25"), new Date("2022-08-30")]}
+				includeDates={[
+					new Date("2022-05-30"),
+					new Date("2022-06-02"),
+					new Date("2022-06-03"),
+				]}
 			/>
 
 			<span className="text-left mt-6 text-base text-slate-700 after:content-['*'] after:ml-0.5 after:text-red-500 block">

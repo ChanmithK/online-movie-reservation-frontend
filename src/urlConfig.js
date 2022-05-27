@@ -1,5 +1,5 @@
-export const api = "http://localhost:2000/api";
+export const api = "https://online-movie-reservation-backend.vercel.app/";
 
-export const imgURL = (fileName) => {
-  return `http://localhost:2000/images/${fileName}`;
+export const imgURL = fileName => {
+	return `https://online-movie-reservation-backend.vercel.app/images/${fileName}`;
 };
